@@ -53,6 +53,11 @@ map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
 map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
 map("n", "<leader>xR", "<cmd>Trouble lsp_references<cr>", opts)
 
+-- Hop
+map('n', '<leader>fw', "<cmd>:HopWord<cr>", opts)
+map('n', '<leader>f1', "<cmd>:HopChar1<cr>", opts)
+map('n', '<leader>fl', "<cmd>:HopLine<cr>", opts)
+
 -- Fomatter
 map("n", "<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 

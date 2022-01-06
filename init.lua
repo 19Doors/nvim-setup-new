@@ -1,6 +1,4 @@
--- Plugins
 require("plugins")
-
 require("general")
 require("keymaps")
 -- require("toggleterml")
@@ -15,8 +13,8 @@ require("keymaps")
 -- require("theme/statuslinel")
 
 -- Lsp
-require("lsp.lspconfig")
-require("lsp.cmpl")
+-- require("lsp.lspconfig")
+-- require("lsp.cmpl")
 require("lsp.csslsp")
 require("lsp.lualsp")
 

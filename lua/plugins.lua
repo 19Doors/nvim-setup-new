@@ -58,33 +58,34 @@ return require("packer").startup(function()
 	-- Syntax Highlighting
 	use({ "nvim-treesitter/nvim-treesitter", event = "BufWinEnter", config = "require('theme/syntaxhigh')" })
 	-- Formatter
-	use({ "jose-elias-alvarez/null-ls.nvim", config = "require('formatter/nullsl')" })
+	use({ "jose-elias-alvarez/null-ls.nvim", keys = {"n", "<leader>fo"}, config = "require('formatter/nullsl')" })
 
 	-- LSP
 	-- LspConfig
-	use("neovim/nvim-lspconfig")
+	use({"neovim/nvim-lspconfig", config="require('lsp/lspconfig')"})
 
 	-- LspSaga
-	use({ "tami5/lspsaga.nvim", config = "require('lsp/lspsagal')" })
+	use({ "tami5/lspsaga.nvim", event="BufWinEnter", after="nvim-lspconfig", config = "require('lsp/lspsagal')" })
 
 	-- AutoCompletion
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
+	use({"hrsh7th/cmp-nvim-lsp"})
+	use({"hrsh7th/cmp-buffer", after="nvim-cmp"})
+	use({"hrsh7th/cmp-path", after='nvim-cmp'})
+	use({"hrsh7th/cmp-cmdline", after='nvim-cmp'})
+	use({"hrsh7th/nvim-cmp", after='cmp-nvim-lsp', config="require('lsp/cmpl')"})
 	-- VSnip
-	use("hrsh7th/vim-vsnip")
-	use("hrsh7th/vim-vsnip-integ")
+	use({"hrsh7th/vim-vsnip", after='nvim-cmp'})
+	use({"hrsh7th/vim-vsnip-integ", after={'nvim-cmp','vim-vsnip'}})
 
 	-- JavaLsp
-	use("mfussenegger/nvim-jdtls")
+	use({"mfussenegger/nvim-jdtls", after='nvim-cmp'})
 
 	-- Trouble
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = "require('lsp/troublel')",
+		event = "BufWinEnter",
+		config = "require('lsp/troublel')"
 	})
 
 	-- Discord Presence
