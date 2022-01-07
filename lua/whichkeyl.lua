@@ -4,9 +4,22 @@ wk.setup{}
 wk.register({
 
     f = {
-	name = "Files",
+	name = "Find",
 	f = {"<cmd>Telescope find_files<cr>", "Find Files"}
+    },
+
+    l = {
+	name = "LspSaga"
+    },
+
+    n = {
+	name = "Format"
+    },
+
+    x = {
+	name = "Trouble",
     }
+
 
 },
 {

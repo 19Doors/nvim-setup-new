@@ -53,11 +53,39 @@ map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
 map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
 map("n", "<leader>xR", "<cmd>Trouble lsp_references<cr>", opts)
 
+-- VSnip
+vim.cmd([[
+" NOTE: You can use other key to expand snippet.
+
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+]])
+
 -- Hop
 map('n', '<leader>fw', "<cmd>:HopWord<cr>", opts)
 map('n', '<leader>f1', "<cmd>:HopChar1<cr>", opts)
 map('n', '<leader>fl', "<cmd>:HopLine<cr>", opts)
 
 -- Fomatter
-map("n", "<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+map("n", "<leader>n", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 
+-- NerdTree
+map("n", "<C-t>", ":NERDTreeToggle<cr>", opts)

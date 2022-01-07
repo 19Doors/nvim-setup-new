@@ -113,6 +113,14 @@ _G.packer_plugins = {
     path = "/home/sakaar/.local/share/nvim/site/pack/packer/opt/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-vsnip"] = {
+    after_files = { "/home/sakaar/.local/share/nvim/site/pack/packer/opt/cmp-vsnip/after/plugin/cmp_vsnip.vim" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/sakaar/.local/share/nvim/site/pack/packer/opt/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
   ["dashboard-nvim"] = {
     config = { "require('starting.dashboardl')" },
     loaded = true,
@@ -166,7 +174,7 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-cmdline", "nvim-jdtls", "vim-vsnip", "cmp-path", "cmp-buffer", "vim-vsnip-integ" },
+    after = { "cmp-vsnip", "cmp-cmdline", "nvim-jdtls", "vim-vsnip", "cmp-path", "cmp-buffer" },
     config = { "require('lsp/cmpl')" },
     load_after = {},
     loaded = true,
@@ -271,20 +279,16 @@ _G.packer_plugins = {
     url = "https://github.com/matze/vim-move"
   },
   ["vim-vsnip"] = {
-    after = { "vim-vsnip-integ" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
     path = "/home/sakaar/.local/share/nvim/site/pack/packer/opt/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
-  ["vim-vsnip-integ"] = {
-    after_files = { "/home/sakaar/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ/after/plugin/vsnip_integ.vim" },
-    load_after = {},
+  ["vscode-java"] = {
     loaded = true,
-    needs_bufread = false,
-    path = "/home/sakaar/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ",
-    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+    path = "/home/sakaar/.local/share/nvim/site/pack/packer/start/vscode-java",
+    url = "https://github.com/redhat-developer/vscode-java"
   },
   ["wal.vim"] = {
     loaded = true,
@@ -334,21 +338,21 @@ require('lsp/cmpl')
 
 vim.cmd [[ packadd cmp-cmdline ]]
 vim.cmd [[ packadd cmp-path ]]
-vim.cmd [[ packadd cmp-buffer ]]
 vim.cmd [[ packadd vim-vsnip ]]
-vim.cmd [[ packadd vim-vsnip-integ ]]
+vim.cmd [[ packadd cmp-vsnip ]]
+vim.cmd [[ packadd cmp-buffer ]]
 vim.cmd [[ packadd nvim-jdtls ]]
 time([[Sequenced loading]], false)
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
 vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'tagbar'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <leader>fo <cmd>lua require("packer.load")({'null-ls.nvim'}, { keys = "<lt>leader>fo", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <Leader>of <cmd>lua require("packer.load")({'fzf.vim'}, { keys = "<lt>Leader>of", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'null-ls.nvim'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <Leader>t <cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>Leader>t", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'fzf.vim'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <C-b> <cmd>lua require("packer.load")({'tagbar'}, { keys = "<lt>C-b>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

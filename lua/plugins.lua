@@ -11,6 +11,7 @@ return require("packer").startup(function()
 	use({ "navarasu/onedark.nvim", config = "require('theme/theme')" })
 	use("LunarVim/Colorschemes")
 	use("dylanaraps/wal.vim")
+	-- use("github/copilot.vim")
 
 	-- Dashboard
 	use({ "glepnir/dashboard-nvim", config = "require('starting.dashboardl')" })
@@ -75,10 +76,12 @@ return require("packer").startup(function()
 	use({"hrsh7th/nvim-cmp", after='cmp-nvim-lsp', config="require('lsp/cmpl')"})
 	-- VSnip
 	use({"hrsh7th/vim-vsnip", after='nvim-cmp'})
-	use({"hrsh7th/vim-vsnip-integ", after={'nvim-cmp','vim-vsnip'}})
+	use({'hrsh7th/cmp-vsnip', after='nvim-cmp'})
+	-- use({"hrsh7th/vim-vsnip-integ", after={'nvim-cmp','vim-vsnip'}})
 
 	-- JavaLsp
 	use({"mfussenegger/nvim-jdtls", after='nvim-cmp'})
+	use("redhat-developer/vscode-java")
 
 	-- Trouble
 	use({
