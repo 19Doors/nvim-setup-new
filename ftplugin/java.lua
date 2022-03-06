@@ -38,4 +38,9 @@ require('jdtls').start_or_attach(config)
 -- vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
 -- vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
 -- ]])
+function Run()
 
+
+end
+
+-- vim.api.nvim_set_keymap("n", "<Leader>r", )
